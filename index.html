@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CzKaique</title>
+  <title>Meu LinkPage</title>
   <style>
     /* Reset básico */
     html, body {
@@ -54,10 +54,25 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
-      
+       animation: pulseGlow 2.5s infinite ease-in-out;
+
       transform: translate(0%, -10%);
     }
 
+  
+  
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff;
+  }
+  50% {
+    box-shadow: 0 0 25px #5a00ff, 0 0 40px #5a00ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff;
+  }
+}
+  
     /* Botões responsivos */
     .btn {
       display: block;
@@ -89,6 +104,7 @@
     @media (orientation: landscape) {
       body {
         background: linear-gradient(to right, #5a00ff, #000111);
+        transform: translate(0%, 10%);
       }
     }
   </style>
