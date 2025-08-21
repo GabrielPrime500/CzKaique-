@@ -4,45 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/kaique.png">
- <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <title>CzKaique</title>
   <style>
-    /* Reset básico */
-    html, body {
+    /* Reset */
+    * {
       margin: 0;
       padding: 0;
-      height: 100dvh;
-      width: 100%;
+      box-sizing: border-box;
     }
 
     body {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       background: linear-gradient(to top, #5a00ff, #000111);
-      background-repeat: no-repeat;
-      background-size: cover;
       font-family: 'Orbitron', Arial, sans-serif;
+      color: white;
+      
     }
 
-    .fa-pix{
-    transform: translate(-255%, 0%);
-    }
-
-    .fa-instagram{
-    transform: translate(-205%, 0%);
-    }
-
-    .fa-tiktok{
-    transform: translate(-335%, 0%);
-    }
-
-    .fa-youtube{
-    transform: translate(-205%, 0%);
-    }
-
-    /* Contêiner principal centralizado */
+    /* Container */
     .container {
       flex: 1;
       display: flex;
@@ -50,156 +34,185 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
-      /* Agora o contêiner tem uma largura máxima para telas grandes */
-      max-width: 600px;
-      width: 90%;
-      margin: 0 auto;
+      padding: 20px;
     }
 
-    /* Título */
-    /* Título */
-    .Titulo {
-      /* O tamanho do título se ajusta à largura da tela */
-      font-size: clamp(25px, 5vw, 35px);
-      margin: 10px 0;
-      transform: translate(0%, -110%);
-    }
-  
-  .T2 {
-    font-size: clamp(10px, 5vw, 15px);
-    
-    transform: translate(0%, -80%);
-  }
-
-    /* Imagem de perfil responsiva */
+    /* Foto perfil */
     .profile-img {
-      /* A imagem se ajusta à tela até um tamanho máximo de 97px */
-      width: 25vw;
-      max-width: 97px;
-      height: auto; /* Mantém a proporção */
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
+      margin-bottom: 15px;
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff; }
+      50% { box-shadow: 0 0 25px #5a00ff, 0 0 40px #5a00ff; }
+      100% { box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff; }
+    }
+
+    /* Títulos */
+    .Titulo {
+      font-size: clamp(25px, 5vw, 35px);
+      margin-bottom: 5px;
+    }
+
+    .T2 {
+      font-size: clamp(14px, 3vw, 20px);
       margin-bottom: 20px;
-       animation: pulseGlow 2.5s infinite ease-in-out;
-
-      transform: translate(0%, -10%);
     }
 
+   /* Botões */
+/* Botões */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 🔴 ícones + texto ficam alinhados à esquerda */
+  gap: 12px; /* espaço entre ícone e texto */
   
+  width: 100%;
+  max-width: 280px;
+  margin: 12px auto;
+  padding: 12px 20px;
   
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff;
-  }
-  50% {
-    box-shadow: 0 0 25px #5a00ff, 0 0 40px #5a00ff;
-  }
-  100% {
-    box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff;
-  }
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 999px;  /* formato pílula */
+  font-size: 16px;
+  
+  transition: 0.3s;
 }
-  
-    /* Botões responsivos */
-    .btn {
-      display: block;
-      /* Agora os botões se ajustam à largura do contêiner */
-      width: 50%;
-      margin: 10px auto;
-      padding: 12px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 25px;
-      transition: 0.3s;
+
+.btn i {
+  font-size: 18px; /* 🔴 garante ícone sempre proporcional */
+  min-width: 24px; /* 🔴 mantém alinhamento certinho mesmo se o ícone for estreito */
+  text-align: center;
+}
+
+.btn:hover {
+  background: #ddd;
+  transform: scale(1.05);
+}
+
+    /* Seções */
+    section {
+      display: none;
+      min-height: 300px;
     }
 
-    .btn:hover {
-      background: #ddd;
+    section.active {
+      display: block;
+    }
+
+    /* Botões pill */
+    .pill-container {
+      display: flex;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+    }
+
+    .pill-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .pill-btn.active {
+      background: #333;
+      color: #fff;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 20px;
-      color: white;
+      padding: 15px;
       background-color: black;
+      font-size: 14px;
     }
 
-    /* Estilo para landscape (horizontal) */
-    @media (orientation: landscape) {
+    footer a {
+      color: red;
+      text-decoration: none;
+    }
+
+    /* Responsivo */
+    @media (min-width: 768px) {
       body {
         background: linear-gradient(to right, #5a00ff, #000111);
-        transform: translate(0%, 10%);
       }
-  .fa-pix{
-     transform: translate(-645%, 0%);
-    }
-
-    .fa-instagram{
-    transform: translate(-645%, 0%);
-    }
-
-    .fa-tiktok{
-    transform: translate(-750%, 0%);
-    }
-
-    .fa-youtube{
-    transform: translate(-545%, 0%);
-    }
-
-.Titulo {
-      
-      transform: translate(0%, -95%);
-}
-      
     }
   
-  /* Aplica só em telas de computador (largura >= 1024px) */
-@media (min-width: 1024px) {
-  body {
-    background: linear-gradient(to right, #5a00ff, #000111);
-    transform: translate(0%, 10%);
-  }
-
-   .profile-img {
-      /* A imagem se ajusta à tela até um tamanho máximo de 97px */
-      
-      transform: translate(0%, -40%);
-   }
-
-
-  .Titulo{
-        
-      transform: translate(0%, -140%);
+  .ads {
+      margin: 40px 0;
+      text-align: center;
+      border: 2px dashed #444;
+      padding: 20px;
+      background: #111;
     }
-  
-  .T2 {
-    font-size: clamp(20px, 5vw, 25px);
-    transform: translate(0%, -115%);
-      }
-}
-  
+
+    .ads p {
+      color: #888;
+    }
   </style>
 </head>
 <body>
+  
   <div class="container">
     <img src="kaique.png" alt="Foto de Perfil" class="profile-img">
     <h1 class="Titulo">CzKaique</h1>
     <p class="Titulo T2">✨️Jogos, conteúdos e diversão garantida✨️</p>
 
+    <!-- Botões pill -->
+    <div class="pill-container">
+      <button class="pill-btn active" onclick="showSection('main', this)">Início</button>
+      <button class="pill-btn" onclick="showSection('eventos', this)">Evento</button>
+    </div>
+
+    <!-- Seção principal -->
+    <section id="main" class="active">
+      <a href="https://livepix.gg/czkaique" class="btn"><i class="fab fa-pix"></i> LivePix</a>
+      <a href="https://www.instagram.com/czkaique_?igsh=MTJsNDR3MGYwd2llZg==" class="btn"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://www.tiktok.com/@czkaique?_t=ZM-8z2WMqq29Zu&_r=1" class="btn"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://youtube.com/@czkaique?si=nv6oGhzQW9EBJI9I" class="btn"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="https://k.kwai.com/u/@CzKaique/CrWs2nRA" class="btn"><i class="fa-solid fa-video"></i> Kwai</a>
+    </section>
     
-    
-    <a href="https://livepix.gg/czkaique" class="btn"><i class="fab fa-pix"></i>  LivePix</a>
-    <a href="https://www.instagram.com/czkaique_?igsh=MTJsNDR3MGYwd2llZg==" class="btn"><i class="fab fa-instagram"></i>  Instagram</a>
-    <a href="https://www.tiktok.com/@czkaique?_t=ZM-8z2WMqq29Zu&_r=1" class="btn"><i class="fab fa-tiktok"></i>   TikTok</a>
-    <a href="https://youtube.com/@czkaique?si=nv6oGhzQW9EBJI9I" class="btn"><i class="fab fa-youtube"></i>   YouTube</a>
-    <a href="https://k.kwai.com/u/@CzKaique/CrWs2nRA" class="btn">Kwai</a>
+    <!-- Seção eventos -->
+    <section id="eventos">
+      <h2>Seção Eventos</h2>
+    <div class="section ads">
+      <!-- Espaço reservado para Google Ads -->
+      <p>🔺 Sem eventos no momemto</p>
+      <!-- Anúncios -->
+    </div> 
+    </section>
   </div>
 
   <footer>
-    <p>&copy; Criado por <a style="color: red;" href="https://gabrielgamer.vercel.app/">GabrielPrime</a></p>
-      </footer>
+    <p>&copy; Criado por <a href="https://gabrielgamer.vercel.app/">GabrielPrime</a></p>
+  </footer>
+  
+  <script>
+    function showSection(id, btn) {
+      // Esconde todas
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      // Mostra a escolhida
+      document.getElementById(id).classList.add("active");
+
+      // Atualiza botões
+      document.querySelectorAll(".pill-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+  </script>
 </body>
 </html>
