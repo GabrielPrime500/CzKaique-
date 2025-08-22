@@ -118,16 +118,18 @@
       font-size: 10px;
     }
 
-    .pill-btn {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      background: #333;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
-      color: white;
-    }
+    
+     .pill-btn {
+  padding: 10px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  flex: 0 0 80px; /* largura fixa menor (80px) */
+  text-align: center;
+  white-space: nowrap; /* evita quebrar texto */
+     }
 
     .pill-btn.active {
       background: #eee;
