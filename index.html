@@ -23,7 +23,6 @@
       background: linear-gradient(to top, #5a00ff, #000111);
       font-family: 'Orbitron', Arial, sans-serif;
       color: white;
-      
     }
 
     /* Container */
@@ -64,39 +63,38 @@
       margin-bottom: 20px;
     }
 
-   /* Botões */
-/* Botões */
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* 🔴 ícones + texto ficam alinhados à esquerda */
-  gap: 12px; /* espaço entre ícone e texto */
-  
-  width: 100%;
-  max-width: 280px;
-  margin: 12px auto;
-  padding: 12px 20px;
-  
-  background: white;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 999px;  /* formato pílula */
-  font-size: 16px;
-  
-  transition: 0.3s;
-}
+    /* Botões */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      
+      width: 100%;
+      max-width: 280px;
+      margin: 12px auto;
+      padding: 12px 20px;
+      
+      background: white;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 999px;
+      font-size: 16px;
+      
+      transition: 0.3s;
+    }
 
-.btn i {
-  font-size: 18px; /* 🔴 garante ícone sempre proporcional */
-  min-width: 24px; /* 🔴 mantém alinhamento certinho mesmo se o ícone for estreito */
-  text-align: center;
-}
+    .btn i {
+      font-size: 18px;
+      min-width: 24px;
+      text-align: center;
+    }
 
-.btn:hover {
-  background: #ddd;
-  transform: scale(1.05);
-}
+    .btn:hover {
+      background: #ddd;
+      transform: scale(1.05);
+    }
 
     /* Seções */
     section {
@@ -115,22 +113,21 @@
       overflow: hidden;
       border: 2px solid #333;
       margin-bottom: 20px;
-      font-size: 10px;
     }
 
-    
-     .pill-btn {
-  padding: 10px;
-  border: none;
-  background: #333;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
-  flex: 0 0 80px; /* largura fixa menor (80px) */
-  text-align: center;
-  white-space: nowrap; /* evita quebrar texto */
-     color: white;
-     }
+    .pill-btn {
+      padding: 10px;
+      border: none;
+      background: #333;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+      flex: 1;              /* ocupa espaço igual */
+      max-width: 160px;     /* limite no mobile */
+      text-align: center;
+      white-space: nowrap;
+      color: white;
+    }
 
     .pill-btn.active {
       background: #eee;
@@ -141,7 +138,6 @@
     footer {
       text-align: center;
       padding: 15px;
-      
       background-color: black;
       font-size: 14px;
     }
@@ -156,26 +152,15 @@
       body {
         background: linear-gradient(to right, #5a00ff, #000111);
       }
-      
-      
-      .pill-btn {
-  padding: 10px;
-  border: none;
-  background: #333;
-  cursor: pointer;
-  font-size: 10px;
-  transition: background 0.3s;
-  flex: 0 0 300px; /* largura fixa menor (80px) */
-  text-align: center;
-  white-space: nowrap; /* evita quebrar texto */
-     color: white;
-     }
 
-    
-      
+      .pill-btn {
+        font-size: 16px;   /* texto maior no PC */
+        flex: 1;           /* divide igualmente */
+        max-width: 200px;  /* limite de largura */
+      }
     }
   
-  .ads {
+    .ads {
       margin: 40px 0;
       text-align: center;
       border: 2px dashed #444;
@@ -186,10 +171,6 @@
     .ads p {
       color: #888;
     }
-  
-  
-  
-  
   </style>
 </head>
 <body>
@@ -213,17 +194,14 @@
       <a href="https://youtube.com/@czkaique?si=nv6oGhzQW9EBJI9I" class="btn"><i class="fab fa-youtube"></i> YouTube</a>
       <a href="https://k.kwai.com/u/@CzKaique/CrWs2nRA" class="btn"><i class="fa-solid fa-video"></i> Kwai</a>
       <a href="https://www.instagram.com/reel/DI6WeO0u6PU/?igsh=ajEzNXIxZHl3aXAz" class="btn" ><i class="fa-brands fa-microsoft"></i> Rewards</a>
-      
     </section>
     
     <!-- Seção eventos -->
     <section id="eventos">
       <h2>Seção Eventos</h2>
-    <div class="section ads">
-      <!-- Espaço reservado para Google Ads -->
-      <p>🔺 Sem eventos no momemto</p>
-      <!-- Anúncios -->
-    </div> 
+      <div class="section ads">
+        <p>🔺 Sem eventos no momento</p>
+      </div> 
     </section>
   </div>
 
@@ -233,12 +211,9 @@
   
   <script>
     function showSection(id, btn) {
-      // Esconde todas
       document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      // Mostra a escolhida
       document.getElementById(id).classList.add("active");
 
-      // Atualiza botões
       document.querySelectorAll(".pill-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
     }
