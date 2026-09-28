@@ -1,312 +1,104 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta property="og:title" content="CzKaique">
-<meta property="og:description" content="✨️Jogos, conteúdos e diversão garantida✨️">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070712">
+<meta property="og:title" content="CzKaique">
+<meta property="og:description" content="Jogos, conteúdos e diversão garantida.">
 <meta property="og:image" content="https://czkaique.vercel.app/kaique.png">
 <meta property="og:url" content="https://czkaique.vercel.app/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CzKaique">
-<meta name="twitter:description" content="✨️Jogos, conteúdos e diversão garantida✨️">
+<meta name="twitter:description" content="Jogos, conteúdos e diversão garantida.">
 <meta name="twitter:image" content="https://czkaique.vercel.app/kaique.png">
-    
-    <link rel="icon" type="image/png" href="kaique.png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <title>CzKaique</title>
-
+<link rel="icon" type="image/png" href="kaique.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>CzKaique • Criador de conteúdo</title>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(to top, #5a00ff, #000111);
-    font-family: 'Orbitron', Arial, sans-serif;
-    color: white;
-  }
-
-  .container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-  }
-
-  /* ANIMAÇÕES */
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-80px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(60px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  .profile-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-
-    animation:
-      pulseGlow 2.5s infinite ease-in-out,
-      slideDown 1s ease;
-  }
-
-  @keyframes pulseGlow {
-    0% {
-      box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff;
-    }
-
-    50% {
-      box-shadow: 0 0 25px #5a00ff, 0 0 40px #5a00ff;
-    }
-
-    100% {
-      box-shadow: 0 0 10px #5a00ff, 0 0 20px #5a00ff;
-    }
-  }
-
-  .Titulo {
-  position: relative;
-  display: inline-block;
-
-  font-size: clamp(42px, 16vw, 58px);
-
-  font-weight: 900;
-
-  color: #d8d8d8;
-
-  -webkit-text-stroke: 1.5px #0099ff;
-
-  text-shadow:
-    0 0 5px #0099ff,
-    0 0 10px #0099ff,
-    0 0 15px #0099ff;
-
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-
-  overflow: hidden;
-}
-
-/* Reflexo passando */
-
-.Titulo::after {
-  content: '';
-
-  position: absolute;
-  top: -20%;
-  left: -120%;
-
-  width: 50%;
-  height: 260%;
-
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.9),
-    transparent
-  );
-
-  transform: rotate(20deg);
-
-  animation: shine 4s infinite;
-}
-
-@keyframes shine {
-  0% {
-    left: -120%;
-  }
-
-  20% {
-    left: 130%;
-  }
-
-  100% {
-    left: 130%;
-  }
-}
-
-  .T2 {
-    font-size: clamp(14px, 3vw, 20px);
-    margin-bottom: 25px;
-
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 0.3s;
-  }
-
-  .links-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 100%;
-    max-width: 450px;
-  }
-
-  .btn {
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-    padding: 12px 15px;
-
-    background: white;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 999px;
-    font-size: 14px;
-
-    transition: all 0.3s ease;
-
-    opacity: 0;
-    animation: slideUp 0.8s ease forwards;
-  }
-
-  .btn:hover {
-    background: #ddd;
-    transform: scale(1.05);
-  }
-
-  .btn i {
-    width: 22px;
-    font-size: 18px;
-    margin-right: 8px;
-  }
-
-  .links-grid .btn:nth-child(1) {
-    animation-delay: 0.4s;
-  }
-
-  .links-grid .btn:nth-child(2) {
-    animation-delay: 0.6s;
-  }
-
-  .links-grid .btn:nth-child(3) {
-    animation-delay: 0.8s;
-  }
-
-  .links-grid .btn:nth-child(4) {
-    animation-delay: 1s;
-  }
-
-  .links-grid .btn:nth-child(5) {
-    animation-delay: 1.2s;
-  }
-
-  .links-grid .btn:nth-child(6) {
-    animation-delay: 1.4s;
-  }
-
-  footer {
-    text-align: center;
-    padding: 15px;
-    background-color: black;
-    font-size: 14px;
-
-    opacity: 0;
-    animation: slideUp 1s ease forwards;
-    animation-delay: 1.6s;
-  }
-
-  footer a {
-    color: red;
-    text-decoration: none;
-  }
-
-  @media (min-width: 768px) {
-    body {
-      background: linear-gradient(to right, #5a00ff, #000111);
-    }
-  }
+:root { --bg:#070712; --surface:#101022; --surface2:#171735; --purple:#7000ff; --blue:#00a8ff; --white:#f7f8ff; --muted:#9da1bb; --line:rgba(255,255,255,.10); }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { min-height:100vh; color:var(--white); background:radial-gradient(circle at 50% -10%, rgba(112,0,255,.32), transparent 34rem), radial-gradient(circle at 90% 55%, rgba(0,168,255,.10), transparent 25rem), var(--bg); font-family:Inter,Arial,sans-serif; overflow-x:hidden; }
+a { color:inherit; }
+body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.22; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:45px 45px; mask-image:linear-gradient(to bottom,#000,transparent 85%); }
+.orb { position:fixed; width:260px; height:260px; border-radius:50%; filter:blur(80px); opacity:.18; pointer-events:none; background:#7000ff; top:20%; left:-140px; animation:float 9s ease-in-out infinite alternate; }
+.orb.two { width:220px; height:220px; background:#00a8ff; top:65%; left:auto; right:-130px; animation-delay:-4s; }
+@keyframes float { to { transform:translate(90px,40px) scale(1.15); } }
+.wrapper { width:min(1100px,92%); margin:auto; position:relative; z-index:1; }
+nav { height:82px; display:flex; align-items:center; justify-content:space-between; }
+.brand { display:flex; align-items:center; gap:11px; text-decoration:none; font-family:Orbitron,sans-serif; font-weight:800; letter-spacing:.5px; }
+.brand-mark { width:37px; height:37px; display:grid; place-items:center; border-radius:11px; background:linear-gradient(135deg,var(--purple),var(--blue)); box-shadow:0 0 25px rgba(112,0,255,.35); }
+.nav-pill { border:1px solid var(--line); background:rgba(255,255,255,.035); padding:9px 14px; border-radius:999px; color:var(--muted); font-size:12px; backdrop-filter:blur(12px); }
+.hero { min-height:calc(100vh - 82px); display:grid; place-items:center; padding:45px 0 80px; }
+.hero-card { width:100%; position:relative; padding:55px 30px 42px; text-align:center; border:1px solid var(--line); border-radius:32px; background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025)); box-shadow:0 30px 100px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.06); backdrop-filter:blur(18px); overflow:hidden; }
+.hero-card::before { content:""; position:absolute; width:420px; height:160px; left:50%; top:-120px; transform:translateX(-50%); background:linear-gradient(90deg,var(--purple),var(--blue)); filter:blur(70px); opacity:.45; }
+.avatar-wrap { position:relative; width:142px; height:142px; margin:0 auto 24px; }
+.avatar-ring { position:absolute; inset:-7px; border-radius:50%; background:conic-gradient(from 180deg,var(--purple),var(--blue),var(--purple)); animation:spin 5s linear infinite; }
+.avatar-ring::after { content:""; position:absolute; inset:3px; border-radius:50%; background:var(--bg); }
+.avatar { position:relative; width:100%; height:100%; border-radius:50%; object-fit:cover; border:5px solid #090912; z-index:2; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.eyebrow { display:inline-flex; gap:7px; align-items:center; padding:7px 12px; border:1px solid rgba(0,168,255,.22); border-radius:999px; color:#b9dfff; background:rgba(0,168,255,.07); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:16px; }
+.dot { width:7px; height:7px; border-radius:50%; background:#00d084; box-shadow:0 0 12px #00d084; }
+h1 { font-family:Orbitron,sans-serif; font-size:clamp(42px,9vw,82px); line-height:.98; letter-spacing:-3px; margin-bottom:16px; background:linear-gradient(100deg,#fff 15%,#bdb4ff 50%,#62d0ff 85%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.subtitle { max-width:610px; margin:auto; color:var(--muted); font-size:clamp(14px,2vw,17px); line-height:1.7; }
+.socials { display:flex; justify-content:center; gap:9px; margin:27px 0 35px; flex-wrap:wrap; }
+.social { width:43px; height:43px; display:grid; place-items:center; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.045); text-decoration:none; transition:.25s ease; }
+.social:hover { transform:translateY(-4px); border-color:rgba(0,168,255,.55); background:rgba(0,168,255,.10); box-shadow:0 12px 25px rgba(0,0,0,.25); }
+.links { width:min(720px,100%); margin:auto; display:grid; grid-template-columns:repeat(2,1fr); gap:12px; text-align:left; }
+.link-card { position:relative; min-height:78px; display:flex; align-items:center; gap:15px; padding:14px 17px; border:1px solid var(--line); border-radius:20px; text-decoration:none; background:rgba(8,8,19,.55); overflow:hidden; transition:.3s ease; }
+.link-card::after { content:""; position:absolute; inset:0; background:linear-gradient(100deg,transparent,rgba(112,0,255,.09),transparent); transform:translateX(-100%); transition:.5s; }
+.link-card:hover { transform:translateY(-4px) scale(1.01); border-color:rgba(112,0,255,.55); box-shadow:0 18px 40px rgba(0,0,0,.28),0 0 30px rgba(112,0,255,.10); }
+.link-card:hover::after { transform:translateX(100%); }
+.icon { width:47px; height:47px; flex:0 0 47px; display:grid; place-items:center; border-radius:15px; font-size:20px; background:linear-gradient(145deg,rgba(112,0,255,.22),rgba(0,168,255,.12)); border:1px solid rgba(255,255,255,.07); }
+.link-info { min-width:0; flex:1; }
+.link-title { display:block; font-weight:800; font-size:14px; margin-bottom:4px; }
+.link-desc { display:block; color:var(--muted); font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.arrow { color:#777c99; font-size:12px; transition:.25s; }
+.link-card:hover .arrow { color:#fff; transform:translateX(3px); }
+footer { padding:25px 0 32px; color:#686d88; text-align:center; font-size:11px; }
+footer a { color:#a88cff; text-decoration:none; }
+.reveal { opacity:0; transform:translateY(20px); animation:reveal .8s ease forwards; }
+.r1{animation-delay:.08s}.r2{animation-delay:.18s}.r3{animation-delay:.28s}.r4{animation-delay:.38s}.r5{animation-delay:.48s}
+@keyframes reveal { to { opacity:1; transform:none; } }
+@media(max-width:650px){ nav{height:70px}.nav-pill{display:none}.hero{padding:25px 0 55px; min-height:calc(100vh - 70px)}.hero-card{padding:40px 16px 28px;border-radius:26px}.avatar-wrap{width:120px;height:120px}h1{letter-spacing:-2px}.links{grid-template-columns:1fr}.link-card{min-height:72px}.subtitle{font-size:13px}.social{width:40px;height:40px} }
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
-  
-  
 </head>
-
 <body>
-
-  <div class="container">
-
-    <img src="kaique.png" alt="Foto de Perfil" class="profile-img">
-
-    <h1 class="Titulo">CzKaique</h1>
-    <p class="T2">✨️Jogos, conteúdos e diversão garantida✨️</p>
-
-    <div class="links-grid">
-
-      <a href="https://livepix.gg/czkaique" class="btn" target="_blank">
-        <i class="fab fa-pix"></i> LivePix
-      </a>
-
-      <a href="https://www.instagram.com/czkaique_" class="btn" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-
-      <a href="https://www.tiktok.com/@czkaique" class="btn" target="_blank">
-        <i class="fab fa-tiktok"></i> TikTok
-      </a>
-
-      <a href="https://youtube.com/@czkaique" class="btn" target="_blank">
-        <i class="fab fa-youtube"></i> YouTube
-      </a>
-
-      <a href="https://discord.gg/cdGRua4YRr" class="btn" target="_blank">
-        <i class="fab fa-discord"></i> Discord
-      </a>
-
-      <a href="https://rewards.bing.com/welcome?rh=D4B5E0A4&ref=rafsrchae" class="btn" target="_blank">
-        <i class="fa-brands fa-microsoft"></i> Rewards
-      </a>
-
-    </div>
-
-  </div>
-
-  <footer>
-    <p>&copy; 2026 Criado por <a href="https://gabrielprime.vercel.app/">GabrielPrime</a></p>
-  </footer>
-
+<div class="orb"></div><div class="orb two"></div>
+<div class="wrapper">
+<nav>
+<a class="brand" href="#top"><span class="brand-mark"><i class="fa-solid fa-gamepad"></i></span><span>CzKaique</span></a>
+<span class="nav-pill"><i class="fa-solid fa-circle-check"></i> Criador de conteúdo</span>
+</nav>
+<main class="hero" id="top">
+<section class="hero-card">
+<div class="avatar-wrap reveal r1"><span class="avatar-ring"></span><img class="avatar" src="kaique.png" alt="Foto de perfil de CzKaique"></div>
+<div class="eyebrow reveal r2"><span class="dot"></span> Online • Conteúdo gamer</div>
+<h1 class="reveal r2">CzKaique</h1>
+<p class="subtitle reveal r3">🎮 Jogos, conteúdos e diversão garantida.<br>Encontre aqui todas as redes, comunidade e formas de acompanhar o canal.</p>
+<div class="socials reveal r3" aria-label="Redes sociais">
+<a class="social" href="https://www.instagram.com/czkaique_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a class="social" href="https://www.tiktok.com/@czkaique" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+<a class="social" href="https://youtube.com/@czkaique" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+<a class="social" href="https://discord.gg/cdGRua4YRr" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
+</div>
+<div class="links reveal r4">
+<a class="link-card" href="https://youtube.com/@czkaique" target="_blank" rel="noopener"><span class="icon"><i class="fab fa-youtube"></i></span><span class="link-info"><span class="link-title">YouTube</span><span class="link-desc">Vídeos, jogos e conteúdos novos</span></span><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a>
+<a class="link-card" href="https://www.instagram.com/czkaique_" target="_blank" rel="noopener"><span class="icon"><i class="fab fa-instagram"></i></span><span class="link-info"><span class="link-title">Instagram</span><span class="link-desc">Posts, novidades e bastidores</span></span><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a>
+<a class="link-card" href="https://www.tiktok.com/@czkaique" target="_blank" rel="noopener"><span class="icon"><i class="fab fa-tiktok"></i></span><span class="link-info"><span class="link-title">TikTok</span><span class="link-desc">Clipes e vídeos rápidos</span></span><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a>
+<a class="link-card" href="https://discord.gg/cdGRua4YRr" target="_blank" rel="noopener"><span class="icon"><i class="fab fa-discord"></i></span><span class="link-info"><span class="link-title">Discord</span><span class="link-desc">Entre para a comunidade</span></span><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a>
+<a class="link-card" href="https://livepix.gg/czkaique" target="_blank" rel="noopener"><span class="icon"><i class="fa-solid fa-heart"></i></span><span class="link-info"><span class="link-title">LivePix</span><span class="link-desc">Apoie o trabalho do criador</span></span><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a>
+<a class="link-card" href="https://rewards.bing.com/welcome?rh=D4B5E0A4&ref=rafsrchae" target="_blank" rel="noopener"><span class="icon"><i class="fa-brands fa-microsoft"></i></span><span class="link-info"><span class="link-title">Microsoft Rewards</span><span class="link-desc">Acesse o programa de recompensas</span></span><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a>
+</div>
+</section>
+</main>
+<footer>© 2026 CzKaique • Site criado por <a href="https://gabrielprime.vercel.app/" target="_blank" rel="noopener">GabrielPrime</a></footer>
+</div>
 </body>
-</html> 
+</html>
